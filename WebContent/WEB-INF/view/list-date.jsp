@@ -4,7 +4,12 @@
 
 <html>
 <head>
+	
 	<title>Date Time Totals</title>
+	
+	<link type="text/css" rel="stylesheet"
+		href="${pageContext.request.contextPath}/resources/css/style.css"/>
+		
 </head>
 <body>
 
