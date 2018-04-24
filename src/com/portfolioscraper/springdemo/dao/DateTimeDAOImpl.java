@@ -18,9 +18,7 @@ public class DateTimeDAOImpl implements DateTimeDAO {
 	@Autowired
 	private SessionFactory sessionFactory;
 	
-	
 	@Override
-	@Transactional
 	public List<DateTime> getDateTimes() {
 		
 		//get the current hibernate session
