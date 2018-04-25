@@ -32,6 +32,13 @@ public class DateTime {
 		
 	}
 
+	public DateTime(String date, String time, String total, String dayGain) {
+		this.date = date;
+		this.time = time;
+		this.total = total;
+		this.dayGain = dayGain;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -78,6 +85,4 @@ public class DateTime {
 				+ "]";
 	}
 	
-	
-
 }

@@ -8,4 +8,6 @@ public interface DateTimeDAO {
 
 	public List<DateTime> getDateTimes();
 	
+	public void insertDateTimes();
+	
 }

@@ -4,10 +4,10 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.portfolioscraper.springdemo.entity.DateTime;
 
@@ -36,8 +36,43 @@ public class DateTimeDAOImpl implements DateTimeDAO {
 		return dateTimes;
 	}
 	
-	
-	
-	
+	public static void main(String[] args) {
+		DateTimeDAOImpl dateTimeDAOImpl = new DateTimeDAOImpl();
+		
+		dateTimeDAOImpl.insertDateTimes();
+		
+		//insertDateTimes();
+	}
+
+	@Override
+	public void insertDateTimes() {
+		
+		sessionFactory = new Configuration()
+									.configure()
+									.addAnnotatedClass(DateTime.class)
+									.buildSessionFactory();
+		
+		Session session = sessionFactory.getCurrentSession();
+		
+		try {
+			
+			//create date time object
+			DateTime tempDate = new DateTime("4-26-18", "3:55pm", "$555.432.32", "+2,325.23 (+1.22%)");
+			
+			//start transaction
+			session.beginTransaction();
+			
+			//save date time object
+			session.save(tempDate);
+			
+			//commit transaction
+			session.getTransaction().commit();
+			
+		} finally {
+			sessionFactory.close();
+		}
+		
+		//return null;
+	}
 
 }
