@@ -1,4 +1,4 @@
-package com.portfolioscraper.springdemo.dao;
+package com.portfolioscraper.dao;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -14,7 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Repository;
 
-import com.portfolioscraper.springdemo.entity.DateTime;
+import com.portfolioscraper.entity.DateTime;
 
 
 @Repository
@@ -23,6 +23,14 @@ public class DateTimeDAOImpl implements DateTimeDAO {
 	//inject session factory
 	@Autowired
 	private SessionFactory sessionFactory;
+	
+	
+	public static void main(String[] args) throws ParseException {
+		DateTimeDAOImpl dateTimeDAOImpl = new DateTimeDAOImpl();
+		
+		dateTimeDAOImpl.insertDateTimes();
+		
+	}
 	
 	@Override
 	public List<DateTime> getDateTimes() {
@@ -36,18 +44,9 @@ public class DateTimeDAOImpl implements DateTimeDAO {
 		
 		//execute query and get result list
 		List<DateTime> dateTimes = theQuery.getResultList();
-		
-		
+			
 		//return results	
 		return dateTimes;
-	}
-	
-	public static void main(String[] args) throws ParseException {
-		DateTimeDAOImpl dateTimeDAOImpl = new DateTimeDAOImpl();
-		
-		dateTimeDAOImpl.insertDateTimes();
-		
-		//insertDateTimes();
 	}
 
 	@Override
@@ -78,7 +77,6 @@ public class DateTimeDAOImpl implements DateTimeDAO {
 			sessionFactory.close();
 		}
 		
-		//return null;
 	}
 
 

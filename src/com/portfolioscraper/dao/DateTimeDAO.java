@@ -1,9 +1,9 @@
-package com.portfolioscraper.springdemo.dao;
+package com.portfolioscraper.dao;
 
 import java.text.ParseException;
 import java.util.List;
 
-import com.portfolioscraper.springdemo.entity.DateTime;
+import com.portfolioscraper.entity.DateTime;
 
 public interface DateTimeDAO {
 

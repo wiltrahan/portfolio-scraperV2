@@ -8,8 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.portfolioscraper.springdemo.entity.DateTime;
-import com.portfolioscraper.springdemo.service.DateTimeService;
+import com.portfolioscraper.entity.DateTime;
+import com.portfolioscraper.service.DateTimeService;
 
 @Controller
 @RequestMapping("/date")

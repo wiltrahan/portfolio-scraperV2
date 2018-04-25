@@ -1,8 +1,8 @@
-package com.portfolioscraper.springdemo.service;
+package com.portfolioscraper.service;
 
 import java.util.List;
 
-import com.portfolioscraper.springdemo.entity.DateTime;
+import com.portfolioscraper.entity.DateTime;
 
 public interface DateTimeService {
 	

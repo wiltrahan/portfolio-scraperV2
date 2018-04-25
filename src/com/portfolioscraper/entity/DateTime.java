@@ -1,4 +1,4 @@
-package com.portfolioscraper.springdemo.entity;
+package com.portfolioscraper.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
