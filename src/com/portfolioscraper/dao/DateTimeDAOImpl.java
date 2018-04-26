@@ -15,7 +15,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.portfolioscraper.entity.DateTime;
-import com.portfolioscraper.scrape.Scrape;
+
+
 
 
 @Repository
@@ -58,7 +59,6 @@ public class DateTimeDAOImpl implements DateTimeDAO {
 									.buildSessionFactory();
 		
 		Session session = sessionFactory.getCurrentSession();
-//		Scrape scrape = new Scrape();
 		
 		try {
 			

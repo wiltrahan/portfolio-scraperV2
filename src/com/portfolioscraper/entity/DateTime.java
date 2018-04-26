@@ -26,7 +26,10 @@ public class DateTime {
 	private String total;
 	
 	@Column(name="dayGain")
-	private String dayGain; 
+	private String dayGain;
+	
+	@Column(name="date_time_id")
+	private int date_time_id;
 	
 	public DateTime() {
 		
@@ -78,6 +81,14 @@ public class DateTime {
 
 	public void setDayGain(String dayGain) {
 		this.dayGain = dayGain;
+	}
+	
+	public int getDate_time_id() {
+		return date_time_id;
+	}
+
+	public void setDate_time_id(int date_time_id) {
+		this.date_time_id = date_time_id;
 	}
 
 	@Override
