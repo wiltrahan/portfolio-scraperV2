@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.portfolioscraper.entity.DateTime;
+import com.portfolioscraper.scrape.Scrape;
 
 
 @Repository
@@ -24,13 +25,13 @@ public class DateTimeDAOImpl implements DateTimeDAO {
 	@Autowired
 	private SessionFactory sessionFactory;
 	
-	
-	public static void main(String[] args) throws ParseException {
-		DateTimeDAOImpl dateTimeDAOImpl = new DateTimeDAOImpl();
-		
-		dateTimeDAOImpl.insertDateTimes();
-		
-	}
+//	
+//	public static void main(String[] args) throws ParseException {
+//		DateTimeDAOImpl dateTimeDAOImpl = new DateTimeDAOImpl();
+//		
+//		dateTimeDAOImpl.insertDateTimes();
+//		
+//	}
 	
 	@Override
 	public List<DateTime> getDateTimes() {
@@ -49,8 +50,7 @@ public class DateTimeDAOImpl implements DateTimeDAO {
 		return dateTimes;
 	}
 
-	@Override
-	public void insertDateTimes() throws ParseException {
+	public void insertDateTimes(DateTime dateTime) throws ParseException {
 		
 		sessionFactory = new Configuration()
 									.configure()
@@ -58,12 +58,12 @@ public class DateTimeDAOImpl implements DateTimeDAO {
 									.buildSessionFactory();
 		
 		Session session = sessionFactory.getCurrentSession();
+//		Scrape scrape = new Scrape();
 		
 		try {
 			
 			//create date time object
-			DateTime tempDate = new DateTime(currentDate(), currentTime(), "$555.432.32", "+2,325.23 (+1.22%)");
-			
+			DateTime tempDate = dateTime;
 			//start transaction
 			session.beginTransaction();
 			
@@ -80,7 +80,6 @@ public class DateTimeDAOImpl implements DateTimeDAO {
 	}
 
 
-	@Override
 	public String currentDate() throws ParseException {
 		
 		String dateTime = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss").format(Calendar.getInstance().getTime());

@@ -39,7 +39,7 @@ public class DateTime {
 		this.total = total;
 		this.dayGain = dayGain;
 	}
-
+	
 	public int getId() {
 		return id;
 	}
