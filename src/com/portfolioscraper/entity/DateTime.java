@@ -1,10 +1,13 @@
 package com.portfolioscraper.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -28,8 +31,9 @@ public class DateTime {
 	@Column(name="dayGain")
 	private String dayGain;
 	
-	@Column(name="date_time_id")
-	private int date_time_id;
+	@OneToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="date_time_id")
+	private Portfolio portfolio;
 	
 	public DateTime() {
 		
@@ -83,18 +87,20 @@ public class DateTime {
 		this.dayGain = dayGain;
 	}
 	
-	public int getDate_time_id() {
-		return date_time_id;
+	public Portfolio getPortfolio() {
+		return portfolio;
 	}
 
-	public void setDate_time_id(int date_time_id) {
-		this.date_time_id = date_time_id;
+	public void setPortfolio(Portfolio portfolio) {
+		this.portfolio = portfolio;
 	}
 
 	@Override
 	public String toString() {
 		return "DateTime [id=" + id + ", date=" + date + ", time=" + time + ", total=" + total + ", dayGain=" + dayGain
-				+ "]";
+				+ ", portfolio=" + portfolio + "]";
 	}
+
+	
 	
 }

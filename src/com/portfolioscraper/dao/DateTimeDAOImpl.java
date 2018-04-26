@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.portfolioscraper.entity.DateTime;
+import com.portfolioscraper.entity.Portfolio;
 
 
 
@@ -56,6 +57,7 @@ public class DateTimeDAOImpl implements DateTimeDAO {
 		sessionFactory = new Configuration()
 									.configure()
 									.addAnnotatedClass(DateTime.class)
+									.addAnnotatedClass(Portfolio.class)
 									.buildSessionFactory();
 		
 		Session session = sessionFactory.getCurrentSession();
@@ -64,10 +66,19 @@ public class DateTimeDAOImpl implements DateTimeDAO {
 			
 			//create date time object
 			DateTime tempDate = dateTime;
+			//create portfolio object
+			Portfolio tempPortfolio = 
+					new Portfolio("TSLA", "333.30", "-1.47", "-0.44%", "600.00", "NULL", "NULL");
+			
+			//associate the objects
+			tempDate.setPortfolio(tempPortfolio);
+			
+			
 			//start transaction
 			session.beginTransaction();
 			
 			//save date time object
+			//this also saves Portfolio object because of CascadeType.ALL
 			session.save(tempDate);
 			
 			//commit transaction
