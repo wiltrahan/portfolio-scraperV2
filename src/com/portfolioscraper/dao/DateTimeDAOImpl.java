@@ -69,9 +69,9 @@ public class DateTimeDAOImpl implements DateTimeDAO {
 			//create stock object
 //			Stock tempStock = 
 //					new Stock("TSLA", "333.30", "-1.47", "-0.44%", "600.00", "NULL", "NULL");
-			tempDate.addStock(new Stock("GE", "14.49", "-0.25", "-1.70%", "500.00", "NULL", "NULL"));
-			tempDate.addStock(new Stock("TSLA", "333.30", "-1.47", "-0.44%", "600.00", "NULL", "NULL"));
-			tempDate.addStock(new Stock("GOOG", "1,111.34", "+8.88", "+0.81%", "50.00", "NULL", "NULL"));
+			tempDate.addStock(new Stock("GE", "14.49", "-0.25", "-1.70%", "500.00"));
+			tempDate.addStock(new Stock("TSLA", "333.30", "-1.47", "-0.44%", "600.00"));
+			tempDate.addStock(new Stock("GOOG", "1,111.34", "+8.88", "+0.81%", "50.00"));
 			
 			//associate the objects
 			//tempDate.setStocks(null);

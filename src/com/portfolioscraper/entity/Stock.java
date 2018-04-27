@@ -32,26 +32,17 @@ public class Stock {
 	@Column(name="totalShrs")
 	private String totalShrs;
 	
-	@Column(name="portfolioTotal")
-	private String portfolioTotal;
-	
-	@Column(name="portfolioDayGain")
-	private String portfolioDayGain;
-	
-	
 	public Stock() {
 		
 	}
 
-	public Stock(String symbol, String value, String dayAmtChg, String dayPctChg, String totalShrs,
-			String portfolioTotal, String portfolioDayGain) {
+	public Stock(String symbol, String value, String dayAmtChg, String dayPctChg, String totalShrs) {
 		this.symbol = symbol;
 		this.value = value;
 		this.dayAmtChg = dayAmtChg;
 		this.dayPctChg = dayPctChg;
 		this.totalShrs = totalShrs;
-		this.portfolioTotal = portfolioTotal;
-		this.portfolioDayGain = portfolioDayGain;
+
 	}
 
 	public int getId() {
@@ -102,27 +93,11 @@ public class Stock {
 		this.totalShrs = totalShrs;
 	}
 
-	public String getPortfolioTotal() {
-		return portfolioTotal;
-	}
-
-	public void setPortfolioTotal(String portfolioTotal) {
-		this.portfolioTotal = portfolioTotal;
-	}
-
-	public String getPortfolioDayGain() {
-		return portfolioDayGain;
-	}
-
-	public void setPortfolioDayGain(String portfolioDayGain) {
-		this.portfolioDayGain = portfolioDayGain;
-	}
-
 	@Override
 	public String toString() {
-		return "Portfolio [id=" + id + ", symbol=" + symbol + ", value=" + value + ", dayAmtChg=" + dayAmtChg
-				+ ", dayPctChg=" + dayPctChg + ", totalShrs=" + totalShrs + ", portfolioTotal=" + portfolioTotal
-				+ ", portfolioDayGain=" + portfolioDayGain + "]";
-	}	
+		return "Stock [id=" + id + ", symbol=" + symbol + ", value=" + value + ", dayAmtChg=" + dayAmtChg
+				+ ", dayPctChg=" + dayPctChg + ", totalShrs=" + totalShrs + "]";
+	}
+
 	
 }
