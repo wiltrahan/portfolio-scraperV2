@@ -101,12 +101,12 @@ public class DateTime {
 	}
 	
 	//add convenience method
-	public void addStock(Stock theStock) {
+	public void addStock(List<Stock> list) {
 		if(stocks == null) {
 			stocks = new ArrayList<>();
 		}
 		
-		stocks.add(theStock);
+		stocks.addAll(list);
 	}
 
 	@Override

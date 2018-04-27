@@ -1,6 +1,9 @@
 package com.portfolioscraper.scrape;
 
 import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -8,6 +11,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import com.portfolioscraper.dao.DateTimeDAOImpl;
 import com.portfolioscraper.entity.DateTime;
+import com.portfolioscraper.entity.Stock;
 
 public class Scrape implements IScrape {
 	
@@ -71,6 +75,20 @@ public class Scrape implements IScrape {
         String dayGain = driver.findElement(By.xpath("/html/body/div[2]/div[3]/section/header/div/div[1]/div/div[2]/p[2]/span")).getText();
 
         dateTimeDAOImpl.insertDateTimes(new DateTime(date, time, portfolioTotal, dayGain));
+		
+	}
+	
+	public static List<Stock> stockScrape() {
+		List<Stock> stocks = new ArrayList<>();
+		for(int i = 1; i <= 10; i++) {
+			stocks.add( new Stock(driver.findElement(By.xpath("/html/body/div[2]/div[3]/section/section[2]/div[2]/table/tbody/tr[" + i + "]/td[1]/span/a")).getText(),
+					driver.findElement(By.xpath("/html/body/div[2]/div[3]/section/section[2]/div[2]/table/tbody/tr[" + i + "]/td[2]/span")).getText(),
+					driver.findElement(By.xpath("/html/body/div[2]/div[3]/section/section[2]/div[2]/table/tbody/tr[" + i + "]/td[3]/span")).getText(),
+					driver.findElement(By.xpath("/html/body/div[2]/div[3]/section/section[2]/div[2]/table/tbody/tr[" + i + "]/td[4]/span")).getText(),
+					driver.findElement(By.xpath("/html/body/div[2]/div[3]/section/section[2]/div[2]/table/tbody/tr[" + i + "]/td[8]")).getText()
+			));
+		}
+		return stocks;
 		
 	}
 
