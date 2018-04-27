@@ -1,13 +1,17 @@
 package com.portfolioscraper.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -31,9 +35,10 @@ public class DateTime {
 	@Column(name="dayGain")
 	private String dayGain;
 	
-	@OneToOne(cascade=CascadeType.ALL)
+	@OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	@JoinColumn(name="date_time_id")
-	private Portfolio portfolio;
+	private List<Stock> stocks;
+	
 	
 	public DateTime() {
 		
@@ -87,20 +92,27 @@ public class DateTime {
 		this.dayGain = dayGain;
 	}
 	
-	public Portfolio getPortfolio() {
-		return portfolio;
+	public List<Stock> getStocks() {
+		return stocks;
 	}
 
-	public void setPortfolio(Portfolio portfolio) {
-		this.portfolio = portfolio;
+	public void setStocks(List<Stock> stocks) {
+		this.stocks = stocks;
+	}
+	
+	//add convenience method
+	public void addStock(Stock theStock) {
+		if(stocks == null) {
+			stocks = new ArrayList<>();
+		}
+		
+		stocks.add(theStock);
 	}
 
 	@Override
 	public String toString() {
 		return "DateTime [id=" + id + ", date=" + date + ", time=" + time + ", total=" + total + ", dayGain=" + dayGain
-				+ ", portfolio=" + portfolio + "]";
+				+ ", stocks=" + stocks + "]";
 	}
 
-	
-	
 }

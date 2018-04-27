@@ -8,8 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="portfolio")
-public class Portfolio {
+@Table(name="stock")
+public class Stock {
 
 	
 	@Id
@@ -38,11 +38,12 @@ public class Portfolio {
 	@Column(name="portfolioDayGain")
 	private String portfolioDayGain;
 	
-	public Portfolio() {
+	
+	public Stock() {
 		
 	}
 
-	public Portfolio(String symbol, String value, String dayAmtChg, String dayPctChg, String totalShrs,
+	public Stock(String symbol, String value, String dayAmtChg, String dayPctChg, String totalShrs,
 			String portfolioTotal, String portfolioDayGain) {
 		this.symbol = symbol;
 		this.value = value;
