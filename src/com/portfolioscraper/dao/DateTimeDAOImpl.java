@@ -27,15 +27,7 @@ public class DateTimeDAOImpl implements DateTimeDAO {
 	//inject session factory
 	@Autowired
 	private SessionFactory sessionFactory;
-	
-//	
-//	public static void main(String[] args) throws ParseException {
-//		DateTimeDAOImpl dateTimeDAOImpl = new DateTimeDAOImpl();
-//		
-//		dateTimeDAOImpl.insertDateTimes();
-//		
-//	}
-	
+		
 	@Override
 	public List<DateTime> getDateTimes() {
 		
@@ -68,12 +60,9 @@ public class DateTimeDAOImpl implements DateTimeDAO {
 			//create date time object
 			DateTime tempDate = dateTime;
 			//create stock object
-//			Stock tempStock = 
-//					new Stock("TSLA", "333.30", "-1.47", "-0.44%", "600.00", "NULL", "NULL");
+
 			tempDate.addStock(Scrape.stockScrape());
-			
-			//associate the objects
-			//tempDate.setStocks(null);
+
 			
 			
 			//start transaction

@@ -29,15 +29,22 @@
  					<th>Time</th>
  					<th>Total</th>
  					<th>Day Gain/Loss</th>
+ 					<th>More Info</th>
  				</tr>
  				
  				<c:forEach var="tempDate" items="${dates}">
+ 					<c:url var="portfolio" value="/date/portfolio">
+ 						<c:param name="dateId" value="${tempDate.id}"/>
+ 				
+ 					</c:url>
+ 				
  				
  					<tr>
  						<td> ${tempDate.date} </td>
  						<td> ${tempDate.time} </td>
  						<td> ${tempDate.total} </td>
  						<td> ${tempDate.dayGain} </td>
+ 						<td><a href="${portfolio}"><button type="button" class="btn btn-outline-primary btn-block">More Info</button></a></td>
  					</tr>
  						
  				</c:forEach>		
