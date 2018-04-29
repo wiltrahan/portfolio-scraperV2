@@ -1,17 +1,12 @@
 package com.portfolioscraper.dao;
 
-import java.io.IOException;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -51,6 +46,7 @@ public class DateTimeDAOImpl implements DateTimeDAO {
 		return dateTimes;
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Stock> getStocks(int id) {
 		List<Stock> theStocks = new ArrayList<>();
@@ -62,8 +58,6 @@ public class DateTimeDAOImpl implements DateTimeDAO {
 				.buildSessionFactory();
 
 		Session session = factory.getCurrentSession();
-
-//		int idTest = 1;
 
 		try {
 			session.beginTransaction();
