@@ -25,6 +25,8 @@ public interface DateTimeDAO {
 
 	String formatTime(String time) throws ParseException;
 
+	public List<Stock> getStocks(int id);
+
 	//List<Stock> getStocks(HttpServletRequest request, HttpServletResponse response, int id) throws ServletException, IOException;
 	
 }

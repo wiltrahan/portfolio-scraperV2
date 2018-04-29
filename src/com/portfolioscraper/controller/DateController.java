@@ -40,11 +40,8 @@ public class DateController {
 								Model theModel) {
 		
 		// get stocks from database
-		List<Stock> theStocks = dateTimeService.getStocks();
-		//List<Stock> theStocks = new ArrayList<Stock>();
-//		theStocks.add(new Stock("GE", "14.34", "-0.04", "-0.28%", "500.00"));
-//		theStocks.add(new Stock("TSLA", "293.24", "+7.76", "+2.72%", "600.00"));
-//		theStocks.add(new Stock("GOOG", "1027.99", "-12.05", "-1.16%", "50.00"));
+		List<Stock> theStocks = dateTimeService.getStocks(theId);
+
 		
 		//set stock list as a model attribute
 		theModel.addAttribute("stocks", theStocks);

@@ -24,16 +24,10 @@ public class DateTimeServiceImpl implements DateTimeService {
 		return dateTimeDAO.getDateTimes();
 	}
 
-//	@Override
-//	public List<Stock> getStocks(int id) {
-//		// TODO Auto-generated method stub
-//		return dateTimeDAO.getStocks(null, null, id);
-//	}
-
 	@Override
-	public List<Stock> getStocks() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Stock> getStocks(int id) {
+		
+		return dateTimeDAO.getStocks(id);
 	}
 
 }

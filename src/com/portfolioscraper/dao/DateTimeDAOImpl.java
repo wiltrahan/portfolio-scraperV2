@@ -3,6 +3,7 @@ package com.portfolioscraper.dao;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -50,45 +51,37 @@ public class DateTimeDAOImpl implements DateTimeDAO {
 		return dateTimes;
 	}
 	
-	public static void main(String[] args) {
+	@Override
+	public List<Stock> getStocks(int id) {
+		List<Stock> theStocks = new ArrayList<>();
 		
 		SessionFactory factory = new Configuration()
-								.configure()
-								.addAnnotatedClass(DateTime.class)
-								.addAnnotatedClass(Stock.class)
-								.buildSessionFactory();
-		
+				.configure()
+				.addAnnotatedClass(DateTime.class)
+				.addAnnotatedClass(Stock.class)
+				.buildSessionFactory();
+
 		Session session = factory.getCurrentSession();
-		
+
+//		int idTest = 1;
+
 		try {
 			session.beginTransaction();
-			
-			List<Stock> theStocks = session.createQuery("from Stock where date_time_id=2").getResultList();
-			
+
+			theStocks = session.createQuery("from Stock where date_time_id=" + id).getResultList();
+
 			for(Stock tempStock : theStocks) {
 				System.out.println(tempStock);
 			}
-			
+
 			session.getTransaction().commit();
 		}
 		finally {
 			factory.close();
 		}
-								
-	
-
+		return theStocks;
 	}
 	
-//	
-//	public void queryStocks() {
-//
-//		
-//		List<Stock> theStocks = 
-//					currentSession.
-//					createQuery("from Stock s where s.date_time_id=1")
-//					.getResultList();
-//		System.out.println(theStocks);
-//	}
 	
 	public void insertDateTimes(DateTime dateTime) throws ParseException {
 		
@@ -156,5 +149,4 @@ public class DateTimeDAOImpl implements DateTimeDAO {
 		
 	}
 
-	
 }
