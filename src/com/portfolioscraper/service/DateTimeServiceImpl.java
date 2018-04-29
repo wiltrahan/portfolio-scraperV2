@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.portfolioscraper.dao.DateTimeDAO;
 import com.portfolioscraper.entity.DateTime;
+import com.portfolioscraper.entity.Stock;
 
 @Service
 public class DateTimeServiceImpl implements DateTimeService {
@@ -21,6 +22,18 @@ public class DateTimeServiceImpl implements DateTimeService {
 	public List<DateTime> getDateTimes() {
 		
 		return dateTimeDAO.getDateTimes();
+	}
+
+//	@Override
+//	public List<Stock> getStocks(int id) {
+//		// TODO Auto-generated method stub
+//		return dateTimeDAO.getStocks(null, null, id);
+//	}
+
+	@Override
+	public List<Stock> getStocks() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
