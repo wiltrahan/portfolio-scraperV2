@@ -9,9 +9,7 @@ import com.portfolioscraper.entity.Stock;
 public interface DateTimeDAO {
 
 	public List<DateTime> getDateTimes();
-	
-	//public List<Stock> getStocks(int id);
-	
+		
 	public void insertDateTimes(DateTime datetime) throws ParseException;
 		
 	public String currentDate() throws ParseException;
